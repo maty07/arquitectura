@@ -1,0 +1,37 @@
+<div class="container">
+  <!-- <h2>adasdas</h2> -->
+  <p-toast></p-toast>
+  <div class="grid mt-5">
+    <div class="col-12 md:col-6 md:col-offset-3 flex justify-content-center">
+      <form [formGroup]="pokemonForm" (ngSubmit)="onSubmit()">
+
+        <div class="p-float-label">
+          <input id="name" type="text" pInputText formControlName="name">
+          <label for="name" required>Nombre pokemon</label>
+          <div *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+            <small class="p-error block" *ngIf="name?.errors?.['required']">
+              campo requerido
+            </small>
+          </div>
+        </div>
+
+        <p-button class="button" [disabled]="pokemonForm.invalid" type="submit">Agregar</p-button>
+
+      </form>
+    </div>
+    <div class="col-12 md:col-8 lg:col-4 md:col-offset-2 lg:col-offset-4">
+      <div *ngIf="pokemons.length != 0">
+        <p-listbox [options]="pokemons" optionLabel="name" [filter]="true">
+          <ng-template let-pokemon pTemplate="item">
+            <div class="flex justify-content-between flex-wrap" [style]="{width: '100%'}"
+              routerLink="/detail/{{pokemon.name}}">
+              <img src="https://seeklogo.com/images/P/Pokemon-logo-497D61B223-seeklogo.com.png" width="50px" />
+              <div>{{pokemon.name}}</div>
+            </div>
+          </ng-template>
+        </p-listbox>
+      </div>
+      <p *ngIf="pokemons.length == 0">cargando...</p>
+    </div>
+  </div>
+</div>

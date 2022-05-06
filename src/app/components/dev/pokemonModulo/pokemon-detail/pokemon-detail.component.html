@@ -1,0 +1,24 @@
+<p-messages [closable]="false"></p-messages>
+<div class="grid">
+  <div class="col-12 flex flex-column align-items-center">
+    <p-card *ngIf="pokemon && !loading" [header]="pokemon.name" subheader="Pokemon" [style]="{width: '300px'}"
+      styleClass="p-card-shadow mt-5">
+      <ng-template pTemplate="header">
+        <div [style]="{width: '50%', margin: 'auto'}">
+          <img *ngIf="pokemon.image" [src]="pokemon.image" width="100%" alt="pokemon">
+        </div>
+      </ng-template>
+      <ng-template pTemplate="footer">
+        <div class="flex justify-content-between">
+          <p-button [label]="pokemon.type"></p-button>
+          <p-button (click)="onBack()" class="ml-2" icon="pi pi-undo" iconPos="left" label="Atrás"></p-button>
+        </div>
+      </ng-template>
+    </p-card>
+    <div *ngIf="loading">
+      <p>cargando.......</p>
+    </div>
+
+    <p>texto recibido via hijo: {{ recibir }}</p>
+  </div>
+</div>

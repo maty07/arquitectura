@@ -1,0 +1,28 @@
+<div class="background">
+    <div class="login w-10 sm:w-10 md:w-8 lg:w-5 xl:w-3">
+        <div class="text-center mb-5">
+            <img src="assets/img/logo_ucm_b.png" alt="Image" height="70" class="mb-3">
+            <div class="text-900 text-3xl font-medium mb-3 text-white">Iniciar Sesión</div>
+        </div>
+        <p-messages></p-messages>
+        <form (ngSubmit)="onSubmit()">
+            <label for="email1" class="block font-medium mb-2">Usuario</label>
+            <input id="email1" [(ngModel)]="username" name="username" type="text" pInputText class="w-full mb-3">
+
+            <label for="password1" class="block font-medium mb-2">Cotraseña</label>
+            <input id="password1" [(ngModel)]="password" name="password" type="password" pInputText class="w-full mb-3">
+
+            <div class="flex align-items-center justify-content-end mb-6">
+                <!-- <div class="flex align-items-center">
+                    <p-checkbox id="rememberme1" [binary]="true" styleClass="mr-2"></p-checkbox>
+                    <label for="rememberme1" class="text-900">Remember me</label>
+                </div> -->
+                <a class="flex align-self-end font-medium no-underline ml-2 text-white text-right cursor-pointer">¿Olvidaste
+                    tu clave?</a>
+            </div>
+
+            <button type="submit" pButton pRipple label="Ingresar" icon="pi pi-user" class="w-full"
+                [ngStyle]="{background: 'var(--blue-700)'}"></button>
+        </form>
+    </div>
+</div>
